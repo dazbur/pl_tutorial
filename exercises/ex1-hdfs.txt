@@ -1,0 +1,9 @@
+1. Create HDFS directory:
+	/etl/earthquakes/landing
+
+2. You can find the earthquake data in ~/datasets/earthquake.json
+Copy it to the directory you just created
+
+3. Print out the first 10 lines of the file from HDFS
+
+4. How many blocks do you have in the file? What is the replication factor?

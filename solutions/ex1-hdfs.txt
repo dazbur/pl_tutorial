@@ -1,0 +1,13 @@
+#1
+sudo -u hdfs hdfs dfs -mkdir /etl
+sudo -u hdfs hdfs dfs chown cloudera:cloudera /etl
+hdfs dfs -mkdir /etl/earthquakes/landing
+
+#2
+hdfs dfs -put ~/datasets/earthquakes.json /etl/earthquakes/landing
+
+#3
+hdfs dfs -cat /etl/earthquakes/landing/earthquakes.json | head -1
+
+#4
+hdfs fsck /etl/earthquakes/landing/earthquakes.json 
