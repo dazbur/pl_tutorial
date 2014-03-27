@@ -1,0 +1,10 @@
+#1
+hdfs dfs -put ~/datasets/shakespeare.txt /user/cloudera
+
+#2
+hadoop jar /usr/lib/hadoop-0.20-mapreduce/hadoop-examples.jar wordcount /user/cloudera/shakespeare.txt /user/cloudera/cnt
+
+#3
+hadoop jar /usr/lib/hadoop-0.20-mapreduce/hadoop-examples.jar teragen  1000000 /user/cloudera/terasort-in
+
+hadoop jar /usr/lib/hadoop-0.20-mapreduce/hadoop-examples.jar terasort /user/cloudera/terasort-in /user/cloudera/terasort-out

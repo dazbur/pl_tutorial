@@ -1,0 +1,14 @@
+1. You can find the complete works of Shakespeare in ~/datasets/shakespeare.txt
+Upload to an HDFS directory
+
+2. Hadoop distribution contains a jar with several example mapreduce programs:
+/usr/lib/hadoop-0.20-mapreduce/hadoop-examples.jar
+
+One of these programs in WordCount.
+
+Use it to count the number of occurances of each word in shakespeare.txt
+
+3. Other example mapreduce programs are teragen and terasort, which allows generating large amounts of random data and then sorting it.
+These are very popular Hadoop benchmarks.
+
+Use "teragen" to generate 100M of random data, then use "terasort" to sort it.
