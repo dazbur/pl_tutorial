@@ -1,0 +1,14 @@
+#1
+sqoop list-databases --connect jdbc:mysql://localhost --username root
+
+#2
+sqoop list-tables --connect jdbc:mysql://localhost/world --username root
+
+#3
+sqoop import --connect jdbc:mysql://localhost/world --username root --table City --warehouse-dir /data/world
+
+#4
+sqoop import --connect jdbc:mysql://localhost/world --username root --table City --hive-import
+
+#5
+sqoop import --connect jdbc:mysql://localhost/world --username root --table City --warehouse-dir /data/world2 --direct
