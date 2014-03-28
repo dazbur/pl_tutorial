@@ -1,8 +1,10 @@
-1. Create HDFS directory:
+1. Create HDFS directories:
 	/etl/earthquakes/landing
+	and /data
+   That belong to user "cloudera"
 
 2. You can find the earthquake data in ~/datasets/earthquake.json
-Copy it to the directory you just created
+Copy it to /etl/earthquakes/landing directory you just created
 
 3. Print out the first 10 lines of the file from HDFS
 

@@ -1,6 +1,8 @@
 #1
 sudo -u hdfs hdfs dfs -mkdir /etl
+sudo -u hdfs hdfs dfs -mkdir /data
 sudo -u hdfs hdfs dfs chown cloudera:cloudera /etl
+sudo -u hdfs hdfs dfs chown cloudera:cloudera /data
 hdfs dfs -mkdir /etl/earthquakes/landing
 
 #2
