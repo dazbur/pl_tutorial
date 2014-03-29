@@ -1,0 +1,6 @@
+1. Add the SerDe jar to the classpath using "add jar". List jars to validate.
+
+2. Create an external table for accessing the earthquake data in HDFS using the JSON SerDE
+
+3. Validate the table by selecting the first two rows.
+Then find the avg magnitude of earthquakes in our file
