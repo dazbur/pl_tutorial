@@ -4,3 +4,7 @@
 
 3. Validate the table by selecting the first two rows.
 Then find the avg magnitude of earthquakes in our file
+
+4. Find 10 most populated cities from our cities_coords table in Hive
+
+5. Find top 10 cities and their population which have largest earthquakes in our data set. 

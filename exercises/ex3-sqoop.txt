@@ -2,9 +2,9 @@
 
 2. List tables in database "world" using Sqoop
 
-3. Load “cities” table to HDFS
+3. Load “cities_coords” table to HDFS
 
-4. Load “cities” table to Hive
+4. Load “cities_coords” table to Hive
 
 5. Load “cities” table to HDFS using Direct Connector
 

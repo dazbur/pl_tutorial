@@ -48,3 +48,15 @@ LOCATION '/etl/earthquakes/landing';
 -- #3
 select * from earthquakes limit 2;
 select avg(properties.mag) from earthquakes;
+
+-- #4
+select name, population from city order by population desc limit 10;
+
+-- #5
+SELECT DISTINCT cc.city_name, cc.population, e.properties.mag
+FROM  tutorial.earthquakes e JOIN cities_coords cc 
+ON regexp_extract(e.properties.place, 'of (.*),',1)=cc.city_name
+WHERE cc.country_code='us'
+AND upper(substr(regexp_extract(e.properties.place, 'of (.*), (.*)',2),1,2))=cc.region
+ORDER BY mag DESC
+LIMIT 10;
