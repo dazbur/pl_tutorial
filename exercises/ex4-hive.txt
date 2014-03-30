@@ -7,4 +7,10 @@ Then find the avg magnitude of earthquakes in our file
 
 4. Find 10 most populated cities from our cities_coords table in Hive
 
-5. Find top 10 cities and their population which have largest earthquakes in our data set. 
+5. Find top 10 cities and their population which have largest earthquakes in our data set. Select only cities that have population of more than 100 people.
+
+Tips:
+a. Use properties.place field to find which city is closest to eqrthquake epicenter
+b. Use Hive regexp_extract to get city and state from string. Check Hive docs for examples -- https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF
+c. Join cities_coors table to get population
+

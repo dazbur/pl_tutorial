@@ -58,5 +58,6 @@ FROM  tutorial.earthquakes e JOIN cities_coords cc
 ON regexp_extract(e.properties.place, 'of (.*),',1)=cc.city_name
 WHERE cc.country_code='us'
 AND upper(substr(regexp_extract(e.properties.place, 'of (.*), (.*)',2),1,2))=cc.region
+AND cc.population > 100
 ORDER BY mag DESC
 LIMIT 10;
