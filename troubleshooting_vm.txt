@@ -1,0 +1,42 @@
+Working with the VM
+
+* What are the usernames/passwords for the VM?
+
+Cloudera manager: 4.4.0: cloudera/cloudera, 4.3.0: admin/admin
+HUE: cloudera/cloudera
+Login: cloudera/cloudera
+
+* I can't find the file in VirtualBox (or VMWare)!
+
+You probably need to unpack it: In Windows, install 7zip, and extract the VM files from the .7z file. In linux or mac, cd to where you copied the file and run 7zr e cloudera-quickstart-vm-4.3.0-kite-vbox-4.4.0.7z
+You should be able to import the extracted files to VirtualBox or VMWare
+
+* How do I open a .ovf file?
+
+Install and open VirtualBox on your computer
+Under the menu "File", select "Import..."
+Navigate to where you unpacked the .ovf file and select it
+
+* What is a .vmdk file?
+
+The .vmdk file is the virtual machine disk image that accompanies a .ovf file, which is a portable VM description.
+
+* How do I open a .vbox file?
+
+Install and open VirtualBox on your computer
+Under the menu "Machine", select "Add..."
+Navigate to where you unpacked the .vbox file and select it
+
+* How do I fix "VTx" errors?
+
+Reboot your computer and enter BIOS
+Find the "Virtualization" settings, usually under "Security" and enable all of the virtualization options
+
+* How do I get my mouse back?
+
+If your mouse/keyboard is stuck in the VM (captured), you can usually release it by pressing the right CTRL key. If you don't have one (or that didn't work), then the release key will be in the lower-right of the VirtualBox window
+
+* Other problems
+
+Using VirtualBox? Try using VMWare.
+Using VMWare? Try using VirtualBox.
