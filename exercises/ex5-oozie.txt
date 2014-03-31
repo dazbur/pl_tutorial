@@ -1,0 +1,26 @@
+0. Before we start: Drop the Hive table "City". We will be importing it again.
+
+1. Oozie workflows can be executed from any node in the cluster. Therefore everything the workflow will need should be on HDFS.
+
+Create /user/cloudera/workflow directory in HDFS and in it:
+ - lib subdirectory with the SerDe Jar
+ - MySQL driver in same subdirectory (copy from /usr/lib/sqoop/lib)
+ - hive-site.xml with hive configuration (copy from /etc/hive/conf)
+ - hive script creating the external earthquakes table
+ - hive script creating "top 10 most populated" cities table
+
+2. create job.properties file - this file should include:
+- namenode
+- jobtracker
+- workflow directory
+- flag to use external libraries (needed for both Sqoop and Hive): oozie.use.system.libpath=true
+
+3. Create workflow.xml file with the following workflow actions:
+- Sqoop action to create Hive cities table
+- Hive action to create external earthquakes table
+- Hive action to create "top 10 most populated" cities 
+
+4. Copy workflow.xml to the workflow directory in HDFS. 
+And use oozie to execute the workflow
+
+5. Validate that all 3 tables were created

@@ -1,0 +1,50 @@
+<workflow-app xmlns="uri:oozie:workflow:0.4" name="earthquakes">
+	<start to="sqoop_cities"/>
+	<action name="sqoop_cities">
+		<sqoop xmlns="uri:oozie:sqoop-action:0.2">
+			<job-tracker>${jobTracker}</job-tracker>
+			 <name-node>${nameNode}</name-node>
+			 <prepare>
+			 	<delete path="${nameNode}/user/${wf:user()}/City"/>
+			 </prepare>
+			 <job-xml>${workflowRoot}/hive-site.xml</job-xml>
+			 <arg>import</arg>
+			 <arg>--connect</arg>
+			 <arg>jdbc:mysql://localhost/world</arg>
+			 <arg>--username</arg>
+			 <arg>root</arg>
+			 <arg>--table</arg>
+			 <arg>City</arg>
+			 <arg>--hive-import</arg>
+		</sqoop>
+		<ok to="cre_earthquakes_table"/>
+		<error to="fail"/>
+	</action>
+
+	<action name="cre_earthquakes_table">
+		<hive xmlns="uri:oozie:hive-action:0.2">
+			<job-tracker>${jobTracker}</job-tracker>
+		        <name-node>${nameNode}</name-node>
+		        <job-xml>${workflowRoot}/hive-site.xml</job-xml>
+		        <script>${workflowRoot}/cre_earthquakes.hql</script>
+		</hive>
+		<ok to="cre_top10_table"/>
+		<error to="fail"/>
+	</action>
+
+
+	<action name="cre_top10_table">
+                <hive xmlns="uri:oozie:hive-action:0.2">
+                        <job-tracker>${jobTracker}</job-tracker>
+                        <name-node>${nameNode}</name-node>
+                        <job-xml>${workflowRoot}/hive-site.xml</job-xml>
+                        <script>${workflowRoot}/cre_top10.hql</script>
+                </hive>
+                <ok to="end"/>
+                <error to="fail"/>
+        </action>
+	<kill name="fail">
+		<message>Action failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+	</kill>
+	<end name="end"/>
+</workflow-app>

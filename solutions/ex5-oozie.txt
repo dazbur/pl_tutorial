@@ -1,0 +1,21 @@
+#0
+
+hive -e 'drop table city;'
+
+#1
+hdfs dfs -mkdir /user/cloudera/workflow
+hdfs dfs -put /etc/hive/conf/hive-site.xml /user/cloudera/workflow
+hdfs dfs -mkdir /user/cloudera/workflow/lib
+hdfs dfs -put /home/cloudera/workspace/pl_tutorial/hive-serdes/target/hive-serdes-1.0-SNAPSHOT.jar /user/cloudera/workflow/lib
+hdfs dfs -put /home/cloudera/workspace/pl_tutorial/oozie/*.hql /user/cloudera/workflow
+hdfs dfs -put /usr/lib/sqoop/lib/mysql-connector-java.jar /user/cloudera/workflow/lib
+#2
+# see example at /home/cloudera/workspace/pl_tutorial/oozie/job.properties
+
+#3
+# see example at /home/cloudera/workspace/pl_tutorial/oozie/workflow.xml
+
+#4
+hdfs dfs -put /home/cloudera/workspace/pl_tutorial/oozie/workflow.xml /user/cloudera/workflow/
+
+oozie job -oozie http://localhost:11000/oozie -config job.properties -run
