@@ -1,4 +1,5 @@
 1. Add the SerDe jar to the classpath using "add jar". List jars to validate.
+You can find the jar in hive-serdes/target directory.
 
 2. Create an external table for accessing the earthquake data in HDFS using the JSON SerDE
 
