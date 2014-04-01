@@ -6,6 +6,10 @@ Cloudera manager: 4.4.0: cloudera/cloudera, 4.3.0: admin/admin
 HUE: cloudera/cloudera
 Login: cloudera/cloudera
 
+* What is user and password for MySQL server:
+user: root
+empty password
+
 * I can't find the file in VirtualBox (or VMWare)!
 
 You probably need to unpack it: In Windows, install 7zip, and extract the VM files from the .7z file. In linux or mac, cd to where you copied the file and run 7zr e cloudera-quickstart-vm-4.3.0-kite-vbox-4.4.0.7z
