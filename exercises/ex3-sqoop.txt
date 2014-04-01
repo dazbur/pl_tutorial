@@ -1,3 +1,5 @@
+0. Start MySQL
+
 1. List databases using Sqoop
 
 2. List tables in database "world" using Sqoop
@@ -6,6 +8,6 @@
 
 4. Load “cities_coords” table to Hive
 
-5. Load “cities” table to HDFS using Direct Connector
+5. Load “cities” table to Hive using Direct Connector
 
 
